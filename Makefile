@@ -11,9 +11,9 @@ CC = gcc
 CFLAGS = -Wall -O2
 FILES = $(TSH) ./myspin ./mysplit ./mystop ./myint
 
-mattTest: all
+mattTest: clean all
 	clear
-	$(DRIVER) -t trace15.txt -s $(TSH) -a $(TSHARGS)
+	$(DRIVER) -t trace05.txt -s $(TSH) -a $(TSHARGS)
 
 
 all: $(FILES)

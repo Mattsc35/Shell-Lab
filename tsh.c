@@ -205,6 +205,7 @@ void eval(char* cmdline)
     char* command = getCommand(argv, numArgs); 
     if(strcmp(argv[0], "/bin/echo") == 0)
 	{ //Todo make it so commands dont run twice
+		free(argv);
 	    return;
 	}
     printf("Entering eval\n");
@@ -220,10 +221,23 @@ void eval(char* cmdline)
 	{ //Todo make it so commands dont run twice
 	    builtin_cmd(argv);
 	}
-
-    free(argv);
+	else{
+		runNewProcess(argv);
+	}
+    
+	free(argv);
     printf("Exiting eval\n\n\n\n\n");
     return;
+}
+
+void runNewProcess(char** argv){
+	
+	//Fork
+	//If child
+	//	Run Process
+	//Else
+	//	Return
+	
 }
 
 /*

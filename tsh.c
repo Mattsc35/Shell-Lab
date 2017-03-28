@@ -194,7 +194,7 @@ void echoHelper(char** argv)
 
 	    if(execve(argv[0], argv, NULL) < 0)
 		{ // TODO double check
-		    printf("%s: Command not found.\n", argv[0]);
+		    printf("%s: Command not found\n", argv[0]);
 		    exit(0);
 		}
 	}
@@ -405,8 +405,17 @@ int getID(char* theId)
 void do_bgfg(char** argv)
 {
     char* command = argv[0];
+	if(argv[1] == NULL){
+		printf("%s command requires PID or %%jobid argument\n", command);
+		return;
+	}
+	
     int id = getID(argv[1]);
-
+	if(id == 0){
+		printf("%s: argument must be a PID or %%jobid\n", command);
+		return;
+	}
+	
     struct job_t* theJob = NULL;
     if(argv[1][0] == '%')
 	{
@@ -415,6 +424,16 @@ void do_bgfg(char** argv)
     else
 	{
 	    theJob = getjobpid(jobs, id);
+	}
+	
+	if(theJob == NULL){
+		if(argv[1][0] == '%'){
+			printf("%%%d: No such job\n", id);
+		}
+		else{
+			printf("(%d): No such process\n", id);
+		}
+		return;
 	}
 
     if(strcmp(command, "bg") == 0)
@@ -474,11 +493,9 @@ void sigchld_handler(int sig)
 		{
 		    deletejob(jobs, pid);
 		}
-
 	    else if(WIFSIGNALED(status))
 		{ /*checks if child was terminated by a signal that was not caught */
-
-		    printf("Pid %d terminated by uncaught signal %d\n", pid, WTERMSIG(status));
+		//    printf("Pid %d terminated by uncaught signal %d\n", pid, WTERMSIG(status));
 		    deletejob(jobs, pid);
 		}
 	    else if(WIFSTOPPED(status))
@@ -504,7 +521,7 @@ void sigint_handler(int sig)
 	{ // If there is a foreground job
 
 	    kill(-pid, SIGINT); // Send it SIGINT;
-	    printf("Job[%d] (%d) terminated by signal %d\n", pid, pid2jid(pid), SIGINT);
+	    printf("Job [%d] (%d) terminated by signal %d\n", pid2jid(pid), pid, SIGINT);
 	}
 
     return;

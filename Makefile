@@ -16,6 +16,133 @@ mattTest: clean all
 	$(DRIVER) -t trace05.txt -s $(TSH) -a $(TSHARGS)
 
 
+diffTest: clean all
+	clear 
+	$(DRIVER) -t trace01.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace01.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+	$(DRIVER) -t trace02.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace02.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+	$(DRIVER) -t trace03.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace03.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+	$(DRIVER) -t trace04.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace04.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+	$(DRIVER) -t trace05.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace05.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+	$(DRIVER) -t trace06.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace06.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+
+
+
+t1: clean all
+	clear 
+	$(DRIVER) -t trace01.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace01.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t2: clean all
+	clear 
+	$(DRIVER) -t trace02.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace02.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t3: clean all
+	clear 
+	$(DRIVER) -t trace03.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace03.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t4: clean all
+	clear 
+	$(DRIVER) -t trace04.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace04.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t5: clean all
+	clear 
+	$(DRIVER) -t trace05.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace05.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t6: clean all
+	clear 
+	$(DRIVER) -t trace06.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace06.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t7: clean all
+	clear 
+	$(DRIVER) -t trace07.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace07.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t8: clean all
+	clear 
+	$(DRIVER) -t trace08.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace08.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+
+t9: clean all
+	clear 
+	$(DRIVER) -t trace09.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace09.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+
+
+t10: clean all
+	clear 
+	$(DRIVER) -t trace10.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace10.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t11: clean all
+	clear 
+	$(DRIVER) -t trace11.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace11.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t12: clean all
+	clear 
+	$(DRIVER) -t trace12.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace12.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t13: clean all
+	clear 
+	$(DRIVER) -t trace13.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace13.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t14: clean all
+	clear 
+	$(DRIVER) -t trace14.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace14.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t15: clean all
+	clear 
+	$(DRIVER) -t trace15.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace15.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+t16: clean all
+	clear 
+	$(DRIVER) -t trace16.txt -s $(TSH) -a $(TSHARGS) > t.txt
+	$(DRIVER) -t trace16.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
+	diff t.txt r.txt
+
+
+
+
+
 all: $(FILES)
 
 ##################
@@ -24,7 +151,7 @@ all: $(FILES)
 handin:
 	cp tsh.c $(TEAM)-$(VERSION)-tsh.c
 
-# Submit in Sakai
+# Submit in Sakaian
 ##################
 # Regression tests
 ##################

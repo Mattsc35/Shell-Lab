@@ -1,7 +1,7 @@
 /*
  * tsh - A tiny shell program with job control
  *
- * <Put your name and UD username here>
+ * Matthews Curtinhas mattsc Tyler Sastre tsas
  */
 
 #include <stdio.h>

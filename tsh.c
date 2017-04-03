@@ -233,7 +233,11 @@ void eval(char* cmdline)
 
     if(strcmp(argv[0], "/bin/echo") == 0)
 	{
+		fflush(stdout);
+	    fflush(stdout);
 	    echoHelper(argv);
+		fflush(stdout);
+	    fflush(stdout);
 	    free(argv);
 	    sleep(1);
 	    return;
@@ -269,7 +273,7 @@ void eval(char* cmdline)
 	    if(execve(argv[0], argv, NULL) < 0)
 		{ // TODO double check
 		    free(argv);
-		    printf("%s: Command not found.\n", argv[0]);
+		    printf("%s: Command not found\n", argv[0]);
 		    exit(0);
 		}
 	    free(argv);
@@ -294,6 +298,9 @@ void eval(char* cmdline)
 	}
 
     free(argv);
+	fflush(stdout);
+	fflush(stdout);
+	//sleep(1);
     //  printf("Exiting eval\n\n\n\n\n");
     return;
 }
@@ -380,10 +387,14 @@ int builtin_cmd(char** argv)
 	}
     if(strcmp(argv[0], "jobs") == 0)
 	{
-	    sleep(1); //So jobs don't print before prompt
+	  //  sleep(1); //So jobs don't print before prompt
+		fflush(stdout);
+	    fflush(stdout);
 	    listjobs(jobs);
+		fflush(stdout);
+	    fflush(stdout);
 	}
-
+	
     return 0; /* not a builtin command */
 }
 
@@ -452,10 +463,7 @@ void do_bgfg(char** argv)
 
 	    theJob->state = FG;
 	    kill(-(theJob->jid), SIGCONT);
-
 	    waitfg(theJob->pid);
-
-	    return;
 	}
 }
 

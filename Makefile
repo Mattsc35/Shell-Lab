@@ -95,31 +95,40 @@ t9: clean all
 	$(DRIVER) -t trace09.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
 	diff t.txt r.txt
 
-
-
 t10: clean all
 	clear 
 	$(DRIVER) -t trace10.txt -s $(TSH) -a $(TSHARGS) > t.txt
 	$(DRIVER) -t trace10.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
 	diff t.txt r.txt
 
+
+
+
 t11: clean all
 	clear 
 	$(DRIVER) -t trace11.txt -s $(TSH) -a $(TSHARGS) > t.txt
 	$(DRIVER) -t trace11.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
-	diff t.txt r.txt
+	cut -c6- t.txt > tt.txt
+	cut -c6- r.txt > rr.txt
+	diff tt.txt rr.txt
 
 t12: clean all
 	clear 
 	$(DRIVER) -t trace12.txt -s $(TSH) -a $(TSHARGS) > t.txt
 	$(DRIVER) -t trace12.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
-	diff t.txt r.txt
+	cut -c6- t.txt > tt.txt
+	cut -c6- r.txt > rr.txt
+	diff tt.txt rr.txt
+
 
 t13: clean all
 	clear 
 	$(DRIVER) -t trace13.txt -s $(TSH) -a $(TSHARGS) > t.txt
 	$(DRIVER) -t trace13.txt -s $(TSHREF) -a $(TSHARGS) > r.txt
-	diff t.txt r.txt
+	cut -c6- t.txt > tt.txt
+	cut -c6- r.txt > rr.txt
+	diff tt.txt rr.txt
+
 
 t14: clean all
 	clear 

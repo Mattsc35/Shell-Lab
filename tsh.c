@@ -273,7 +273,7 @@ void eval(char* cmdline)
 	    if(execve(argv[0], argv, NULL) < 0)
 		{ // TODO double check
 		    free(argv);
-		    printf("%s: Command not found.\n", argv[0]);
+		    printf("%s: Command not found\n", argv[0]);
 		    exit(0);
 		}
 	    free(argv);

@@ -216,7 +216,6 @@ void echoHelper(char** argv)
 */
 void eval(char* cmdline)
 {
-
     fflush(stdout);
     int numArgs = getNumArugments(cmdline);
     char** argv = malloc(1000);

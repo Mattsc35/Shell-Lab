@@ -510,6 +510,7 @@ void sigchld_handler(int sig)
 		}
 	    else if(WIFSIGNALED(status))
 		{ // child was terminated by a signal that was not caught
+			printf("Job [%d] (%d) terminated by signal %d\n", pid2jid(pid), pid, SIGINT);
 		    deletejob(jobs, pid);
 		}
 	    else if(WIFSTOPPED(status))
@@ -534,7 +535,7 @@ void sigint_handler(int sig)
     if(pid != 0) // If there is a foreground job
 	{ 
 	    kill(-pid, SIGINT); // Send it SIGINT;
-	    printf("Job [%d] (%d) terminated by signal %d\n", pid2jid(pid), pid, SIGINT);
+	  //  printf("Job [%d] (%d) terminated by signal %d\n", pid2jid(pid), pid, SIGINT);
 	}
 
     return;
